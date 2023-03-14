@@ -4,9 +4,10 @@ from testbook import testbook
 import random
 
 # This is to prevent: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado.
-import asyncio
-from asyncio import WindowsSelectorEventLoopPolicy
-asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
+if os.name == 'nt':  # Check if running on a Windows machine
+    import asyncio
+    from asyncio import WindowsSelectorEventLoopPolicy
+    asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())
 
 # Enables to load parts of a notebook
 @pytest.fixture(scope='module')
