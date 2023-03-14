@@ -2,6 +2,7 @@
 import pytest
 from testbook import testbook
 import random
+import os
 
 # This is to prevent: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado.
 if os.name == 'nt':  # Check if running on a Windows machine
