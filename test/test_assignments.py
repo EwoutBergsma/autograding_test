@@ -34,13 +34,13 @@ def test_assignment_1a_random(tb, test_input):
 @pytest.mark.parametrize("test_input", [([1, 2]), ([3.5, 7.13]), ([-13.23, 6])])
 def test_assignment_1b_static(tb, test_input):
     student_multiply = tb.ref("multiply")
-    assert student_multiply(test_input[0], test_input[1]) - 1 == pytest.approx(test_input[0] * test_input[1], 0.01)
+    assert student_multiply(test_input[0], test_input[1]) == pytest.approx(test_input[0] * test_input[1], 0.01)
 
 # Tests assignment 1a, by performing a series of unittests using random test_inputs and corresponding expected values.
 @pytest.mark.parametrize("test_input", [([random.uniform(-10, 10), random.uniform(-10, 10)]), ([random.uniform(-10, 10), random.uniform(-10, 10)]), ([random.uniform(-10, 10), random.uniform(-10, 10)])])
 def test_assignment_1b_random(tb, test_input):
     student_multiply = tb.ref("multiply")
-    assert student_multiply(test_input[0], test_input[1]) - 1 == pytest.approx(test_input[0] * test_input[1], 0.01)
+    assert student_multiply(test_input[0], test_input[1]) == pytest.approx(test_input[0] * test_input[1], 0.01)
 
 ################### Assignment 2 ###################
 
